@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Mock数据生成测试类 - 生成10万条数据
+ * Mock数据生成测试类 - 生成100万条数据
  *
  * @author lengleng
  * @date 2025/12/08
