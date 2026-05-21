@@ -1,6 +1,6 @@
 package com.pig4cloud.plugin.excel.enums;
 
-import cn.idev.excel.annotation.ExcelProperty;
+import org.apache.fesod.sheet.annotation.ExcelProperty;
 import com.pig4cloud.plugin.excel.annotation.DictTypeProperty;
 import com.pig4cloud.plugin.excel.annotation.ExcelLine;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.pig4cloud.plugin.excel.read;
 
-import cn.idev.excel.EasyExcel;
+import org.apache.fesod.sheet.FesodSheet;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
 
@@ -27,7 +27,7 @@ class ReaderExcelTests {
 	@Test
 	void indexOrNameRead() throws IOException {
 		ClassPathResource classPathResource = new ClassPathResource("tmp/indexOrName.xlsx");
-		EasyExcel.read(classPathResource.getInputStream(), IndexOrNameData.class, new IndexOrNameDataListener())
+		FesodSheet.read(classPathResource.getInputStream(), IndexOrNameData.class, new IndexOrNameDataListener())
 			.sheet()
 			.doRead();
 	}
@@ -35,7 +35,7 @@ class ReaderExcelTests {
 	@Test
 	void indexOrNameRead1() throws IOException {
 		ClassPathResource classPathResource = new ClassPathResource("tmp/indexOrName1.xlsx");
-		EasyExcel.read(classPathResource.getInputStream(), IndexOrNameData1.class, new IndexOrNameDataListener1())
+		FesodSheet.read(classPathResource.getInputStream(), IndexOrNameData1.class, new IndexOrNameDataListener1())
 			.sheet()
 			.doRead();
 	}

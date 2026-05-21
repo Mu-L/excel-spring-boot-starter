@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.8</version>
+    <version>4.0.6</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.pig4cloud.excel</groupId>
   <artifactId>excel-spring-boot-starter</artifactId>
-  <version>3.4.3</version>
+  <version>4.0.0</version>
   <name>excel-spring-boot-starter</name>
   <description>easy and high performance excel</description>
   <url>https://pig4cloud.com</url>
@@ -37,7 +37,7 @@
   <properties>
     <java.version>17</java.version>
     <commons-lang3.version>3.20.0</commons-lang3.version>
-    <fastexcel.version>1.3.0</fastexcel.version>
+    <fesod.version>2.0.1-incubating</fesod.version>
     <mica.version>3.1.6</mica.version>
     <spring.checkstyle.plugin>0.0.43</spring.checkstyle.plugin>
     <git.commit.plugin>4.9.10</git.commit.plugin>
@@ -46,7 +46,7 @@
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter-webmvc</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -56,7 +56,7 @@
     <!--引入AOP依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-aop</artifactId>
+      <artifactId>spring-boot-starter-aspectj</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -64,9 +64,9 @@
       <version>${commons-lang3.version}</version>
     </dependency>
     <dependency>
-      <groupId>cn.idev.excel</groupId>
-      <artifactId>fastexcel</artifactId>
-      <version>${fastexcel.version}</version>
+      <groupId>org.apache.fesod</groupId>
+      <artifactId>fesod-sheet</artifactId>
+      <version>${fesod.version}</version>
     </dependency>
     <!-- lombok -->
     <dependency>
@@ -84,7 +84,7 @@
     <!-- test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

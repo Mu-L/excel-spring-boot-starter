@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -96,17 +95,9 @@ public class DemoControllerTest {
 
 		ClassPathResource classPathResource = new ClassPathResource("tmp/enums.xlsx");
 
-		// 创建一个模拟的 Excel 文件
-		MockMultipartFile mockFile = new MockMultipartFile("file", // 参数名称，应该与 Controller
-				// 中接收的文件参数名称一致
-				"enums.xlsx", // 上传的文件名
-				MediaType.MULTIPART_FORM_DATA_VALUE, // 文件类型
-				classPathResource.getContentAsByteArray() // 文件内容，可以根据需要替换为实际的Excel内容
-		);
-
 		// 模拟文件上传请求
 		MvcResult result = mockMvc.perform(multipart("/demo/upload") // 上传文件的URL
-			.file(mockFile) // 添加文件
+			.file("file", classPathResource.getContentAsByteArray()) // 添加文件
 			.contentType(MediaType.MULTIPART_FORM_DATA) // 设置内容类型为 multipart/form-data
 		)
 			.andExpect(status().isOk()) // 验证返回的 HTTP 状态码是 200 OK

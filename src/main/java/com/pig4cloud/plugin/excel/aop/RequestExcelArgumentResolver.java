@@ -1,6 +1,6 @@
 package com.pig4cloud.plugin.excel.aop;
 
-import cn.idev.excel.EasyExcel;
+import org.apache.fesod.sheet.FesodSheet;
 import com.pig4cloud.plugin.excel.annotation.RequestExcel;
 import com.pig4cloud.plugin.excel.converters.*;
 import com.pig4cloud.plugin.excel.handler.DictCacheClearAnalysisEventListener;
@@ -71,7 +71,7 @@ public class RequestExcelArgumentResolver implements HandlerMethodArgumentResolv
 		Class<?> excelModelClass = ResolvableType.forMethodParameter(parameter).getGeneric(0).resolve();
 
 		// 这里需要指定读用哪个 class 去读，然后读取第一个 sheet 文件流会自动关闭
-		EasyExcel.read(inputStream, excelModelClass, readListener)
+		FesodSheet.read(inputStream, excelModelClass, readListener)
 			.registerConverter(LocalDateStringConverter.INSTANCE)
 			.registerConverter(LocalDateTimeStringConverter.INSTANCE)
 			.registerConverter(LocalTimeStringConverter.INSTANCE)
